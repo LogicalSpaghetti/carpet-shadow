@@ -1,6 +1,9 @@
 plugins {
-    id 'fabric-loom' version '1.2-SNAPSHOT'
-    id 'io.github.juuxel.loom-quiltflower' version '1.10.0'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+// Why quilt? Allegedly redundant
+/*
+    id 'io.github.juuxel.loom-quiltflower' version '1.11.0'
+*/
 }
 
 version = project.mod_version + project.mod_suffix
@@ -34,10 +37,12 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    modImplementation "carpet:fabric-carpet:${project.carpet_core_version}"
+    modImplementation "carpet:fabric-carpet:${project.minecraft_version}-${project.carpet_core_version}"
     implementation 'de.cronn:reflection-util:2.13.2'
     include(implementation( group: 'org.apache.commons', name: 'commons-collections4', version: 'latest.release'))
+/*
     include(implementation(annotationProcessor("com.github.LlamaLad7.mixinextras:mixinextras-fabric:${project.mixin_extras_fabric_version}")))
+*/
 
 }
 
